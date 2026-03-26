@@ -4,3 +4,4 @@ kagglehub
 imbalanced-learn
 scikit-learn
 imblearn
+matplotlib
