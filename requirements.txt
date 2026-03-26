@@ -1,3 +1,6 @@
 pandas
 numpy
 kagglehub
+imbalanced-learn
+sklearn
+imblearn
