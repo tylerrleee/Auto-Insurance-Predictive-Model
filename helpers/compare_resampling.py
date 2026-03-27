@@ -67,7 +67,7 @@ def compare_resampling_techniques(X_train, y_train, X_test, y_test, random_state
             X_resampled, y_resampled = X_train, y_train
         
         # Train Logistic Regression
-        model = LogisticRegression(max_iter=1000, random_state=random_state)
+        model = LogisticRegression(max_iter=1000, random_state=random_state, class_weight='balanced')
         model.fit(X_resampled, y_resampled)
         
         # Predictions
@@ -79,9 +79,9 @@ def compare_resampling_techniques(X_train, y_train, X_test, y_test, random_state
             'Technique': name,
             'Train Samples': len(y_resampled),
             'Minority Samples': sum(y_resampled == 1),
-            'Precision': precision_score(y_test, y_pred),
-            'Recall': recall_score(y_test, y_pred),
-            'F1 Score': f1_score(y_test, y_pred),
+            'Precision': precision_score(y_test, y_pred, zero_division=0),
+            'Recall': recall_score(y_test, y_pred, zero_division=0),
+            'F1 Score': f1_score(y_test, y_pred, zero_division=0),
             'AUC-ROC': roc_auc_score(y_test, y_proba),
             'AUC-PR': average_precision_score(y_test, y_proba)
         }
