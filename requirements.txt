@@ -5,3 +5,6 @@ imbalanced-learn
 scikit-learn
 imblearn
 matplotlib
+xgboost
+lightgbm
+optuna
